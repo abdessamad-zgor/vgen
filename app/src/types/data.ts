@@ -1,0 +1,11 @@
+export enum SQLDataTypes {
+  BOOLEAN, DATE, INTEGER, BIGINT, FLOAT, DECIMAL,
+  BLOB, BINARY, VARCHAR, TIMESTAMP
+}
+
+export enum MongoDataTypes {
+  STRING, INTEGER, BOOLEAN, DOUBLE, ARRAY, TIMESTAMP,
+  OBJECT, NULL, SYMBOL, DATE, OBJECTID, BINARYDATA, CODE, REGEXP
+}
+
+export type DataTypes = MongoDataTypes | SQLDataTypes
