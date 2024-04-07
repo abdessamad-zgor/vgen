@@ -3,9 +3,5 @@ export enum SQLDataTypes {
   BLOB, BINARY, VARCHAR, TIMESTAMP
 }
 
-export enum MongoDataTypes {
-  STRING, INTEGER, BOOLEAN, DOUBLE, ARRAY, TIMESTAMP,
-  OBJECT, NULL, SYMBOL, DATE, OBJECTID, BINARYDATA, CODE, REGEXP
-}
 
-export type DataTypes = MongoDataTypes | SQLDataTypes
+export type DataTypes = SQLDataTypes

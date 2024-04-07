@@ -1,27 +1,50 @@
 import { SQLDataTypes } from "./data"
 
-export type Default = {
+export class Default {
   value: any
+  constructor(value: string) {
+    this.value = value
+  }
 }
 
-export type NotNull = boolean
-
-export type Check = {
-  _f: <T extends any[]>(...args: T) => boolean
+export class NotNull {
+  is: boolean
+  constructor(is: boolean) {
+    this.is = is
+  }
 }
 
-export type PrimaryKey = {
+export class Check {
+  condition: <T extends any[]>(...args: T) => boolean
+  constructor(condition: <T extends any[]>(...args: T) => boolean) {
+    this.condition = condition
+  }
+}
+
+export class PrimaryKey {
   fieldname: string
+  constructor(fieldname: string) {
+    this.fieldname = fieldname
+  }
 }
 
-export type Unique = boolean
+export class Unique {
+  is: boolean
+  constructor(is: boolean) {
+    this.is = is
+  }
+}
 
-export type ForeignKey = {
+export class ForeignKey {
   reference: {
     table: string,
-    name: string
-  },
+    fieldname: string
+  };
   fieldname: string
+  constructor(reference: { table: string, fieldname: string }, fieldname: string) {
+    this.reference = reference
+    this.fieldname = fieldname
+  }
 }
 
 export type SQLConstraint = Default | NotNull | Unique | PrimaryKey | ForeignKey;
